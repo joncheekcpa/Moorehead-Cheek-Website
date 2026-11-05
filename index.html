@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moorehead Cheek, PLLC | Certified Public Accountants</title>
+<meta name="description" content="Moorehead Cheek, PLLC provides individual and business tax preparation, small business accounting, and business consulting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1f33;
+    --ink-soft: #3c4a5e;
+    --muted: #66748a;
+    --paper: #f5f7fa;
+    --paper-2: #eaeef4;
+    --card: #ffffff;
+    --line: #d8dfe9;
+    --forest: #003a70;
+    --forest-deep: #002650;
+    --brass: #c08a2e;
+    --brass-soft: #f4e8d0;
+    --radius: 14px;
+    --max: 1180px;
+    --shadow: 0 1px 2px rgba(15,31,51,.06), 0 8px 24px rgba(15,31,51,.06);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.6 Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 500; letter-spacing: -0.01em; line-height: 1.12; margin: 0; }
+  p { margin: 0; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--brass);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; border-radius: 999px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    border: 1.5px solid transparent; cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s, transform .2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--forest); color: #fff; }
+  .btn-primary:hover { background: var(--forest-deep); }
+  .btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+  .btn-brass { background: var(--brass); color: #1a1205; }
+  .btn-brass:hover { background: #a57a31; }
+
+  /* Header */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245,247,250,.9); backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid transparent; transition: border-color .2s;
+  }
+  header.site.scrolled { border-bottom-color: var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { height: 56px; width: auto; }
+  @media (max-width: 640px) { .brand img { height: 46px; } }
+  footer .brand img { height: 60px; filter: brightness(0) invert(1); }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links .btn { color: #fff; padding: 11px 20px; }
+  .menu-btn { display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 72px 0 96px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+  .hero h1 { font-size: clamp(42px, 5.6vw, 72px); margin: 20px 0 24px; }
+  .hero h1 em { font-style: italic; color: var(--forest); }
+  .hero .lead { font-size: 19px; color: var(--ink-soft); max-width: 34em; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .trust { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .trust div { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-soft); font-weight: 500; }
+  .trust svg { color: var(--forest); flex: none; }
+
+  .hero-card {
+    background: var(--forest); color: #fff; border-radius: 24px; padding: 36px;
+    position: relative; box-shadow: 0 30px 60px -20px rgba(0,38,80,.45);
+  }
+  .hero-card::before {
+    content: ""; position: absolute; inset: 0; border-radius: 24px;
+    background: radial-gradient(120% 80% at 100% 0%, rgba(184,137,59,.35), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-card h3 { font-size: 24px; margin-bottom: 6px; position: relative; }
+  .hero-card .sub { color: rgba(255,255,255,.7); font-size: 15px; position: relative; }
+  .deadlines { list-style: none; padding: 0; margin: 26px 0 0; position: relative; }
+  .deadlines li {
+    display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center;
+    padding: 16px 0; border-top: 1px solid rgba(255,255,255,.14);
+  }
+  .date { background: rgba(255,255,255,.08); border-radius: 10px; text-align: center; padding: 8px 0; }
+  .date b { display: block; font-family: Fraunces, serif; font-size: 22px; font-weight: 500; line-height: 1.1; }
+  .date span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--brass-soft); }
+  .deadlines strong { font-weight: 600; font-size: 15px; display: block; }
+  .deadlines small { color: rgba(255,255,255,.65); font-size: 13.5px; }
+  .hero-card .btn { margin-top: 24px; width: 100%; justify-content: center; position: relative; }
+
+  /* Sections */
+  section { padding: 104px 0; }
+  .section-head { max-width: 680px; margin-bottom: 56px; }
+  .section-head h2 { font-size: clamp(34px, 4vw, 50px); margin: 14px 0 18px; }
+  .section-head p { color: var(--ink-soft); font-size: 18px; }
+
+  /* Services */
+  #services { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service {
+    background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 36px 32px; display: flex; flex-direction: column;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+  }
+  .service:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #b9c5d6; }
+  .icon {
+    width: 52px; height: 52px; border-radius: 12px; background: var(--brass-soft); color: var(--forest);
+    display: grid; place-items: center; margin-bottom: 28px;
+  }
+  .service h3 { font-size: 26px; margin-bottom: 12px; }
+  .service > p { color: var(--ink-soft); font-size: 16px; }
+  .service ul { list-style: none; padding: 0; margin: 24px 0 28px; flex: 1; }
+  .service li { position: relative; padding: 8px 0 8px 26px; font-size: 15px; border-top: 1px dashed var(--line); }
+  .service li::before {
+    content: ""; position: absolute; left: 2px; top: 16px; width: 12px; height: 7px;
+    border-left: 2px solid var(--forest); border-bottom: 2px solid var(--forest); transform: rotate(-45deg);
+  }
+  .service a.more { font-weight: 600; font-size: 15px; color: var(--forest); text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+  .service a.more:hover { gap: 12px; }
+  .service a.more { transition: gap .2s; }
+
+  /* Who we serve */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .audience { display: grid; gap: 16px; }
+  .aud {
+    display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 24px;
+    border-radius: var(--radius); background: var(--card); border: 1px solid var(--line);
+  }
+  .aud .num { font-family: Fraunces, serif; font-size: 28px; color: var(--brass); line-height: 1; }
+  .aud h3 { font-size: 20px; margin-bottom: 6px; }
+  .aud p { color: var(--ink-soft); font-size: 15.5px; }
+
+  /* Process */
+  #process { background: var(--forest-deep); color: #fff; }
+  #process .section-head p { color: rgba(255,255,255,.72); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
+  .step { padding: 32px 28px 8px 0; border-top: 1px solid rgba(255,255,255,.2); position: relative; }
+  .step::before {
+    counter-increment: step; content: "0" counter(step);
+    font-family: Fraunces, serif; font-size: 15px; color: var(--brass); display: block; margin-bottom: 18px;
+  }
+  .step::after {
+    content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--brass);
+  }
+  .step h3 { font-size: 22px; margin-bottom: 10px; }
+  .step p { color: rgba(255,255,255,.7); font-size: 15.5px; }
+
+  /* Why us */
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .why-item { padding: 28px 0; border-top: 2px solid var(--ink); }
+  .why-item h3 { font-size: 22px; margin-bottom: 10px; }
+  .why-item p { color: var(--ink-soft); font-size: 16px; }
+
+  /* Quote */
+  .quote {
+    margin-top: 72px; background: var(--brass-soft); border-radius: 24px; padding: 56px;
+    display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: start;
+  }
+  .quote svg { color: var(--brass); }
+  .quote blockquote { margin: 0; font-family: Fraunces, serif; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.35; }
+  .quote cite { display: block; margin-top: 20px; font-style: normal; font-size: 15px; color: var(--ink-soft); font-family: Inter, sans-serif; }
+
+  /* FAQ */
+  #faq { background: var(--card); border-top: 1px solid var(--line); }
+  .faq { max-width: 820px; }
+  details { border-bottom: 1px solid var(--line); }
+  summary {
+    list-style: none; cursor: pointer; padding: 24px 40px 24px 0; position: relative;
+    font-family: Fraunces, serif; font-size: 21px; font-weight: 500;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+    font-family: Inter, sans-serif; font-size: 26px; font-weight: 400; color: var(--forest); transition: transform .2s;
+  }
+  details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  details p { padding: 0 40px 24px 0; color: var(--ink-soft); }
+
+  /* Contact */
+  #contact { padding-bottom: 120px; }
+  .contact { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; }
+  .contact-info h2 { font-size: clamp(34px, 4vw, 50px); margin: 14px 0 18px; }
+  .contact-info > p { color: var(--ink-soft); font-size: 18px; }
+  .info-list { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 20px; }
+  .info-list li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; }
+  .info-list .icon { width: 44px; height: 44px; margin: 0; border-radius: 10px; }
+  .info-list small { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
+  .info-list span { font-weight: 500; }
+  form {
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 40px;
+    box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+  }
+  form .full { grid-column: 1 / -1; }
+  label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  input, select, textarea {
+    width: 100%; font: inherit; font-size: 16px; color: var(--ink);
+    padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 3px rgba(0,58,112,.15); }
+  textarea { min-height: 130px; resize: vertical; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .chips label {
+    margin: 0; font-weight: 500; font-size: 14px; padding: 9px 16px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--paper); cursor: pointer; transition: all .15s;
+  }
+  .chips input:checked + label { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .chips input:focus-visible + label { box-shadow: 0 0 0 3px rgba(0,58,112,.25); }
+  .form-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .form-foot small { color: var(--muted); font-size: 13px; max-width: 30em; }
+  .form-ok { display: none; grid-column: 1 / -1; background: var(--brass-soft); padding: 14px 16px; border-radius: 10px; font-weight: 500; }
+
+  /* Footer */
+  footer { background: var(--ink); color: rgba(255,255,255,.72); padding: 72px 0 36px; font-size: 15px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  footer h4 { color: #fff; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 18px; font-weight: 600; }
+  footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,.5); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .hero-grid, .split, .contact { grid-template-columns: 1fr; gap: 48px; }
+    .services, .why { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; row-gap: 24px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 820px) {
+    .menu-btn { display: block; }
+    .nav-links {
+      position: absolute; top: 76px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 16px 20px;
+      display: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 14px 8px; border-bottom: 1px solid var(--line); }
+    .nav-links .btn { margin-top: 14px; justify-content: center; border-bottom: 0; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    body { font-size: 16px; }
+    section { padding: 72px 0; }
+    .hero { padding: 40px 0 64px; }
+    .hero-card { padding: 28px 22px; }
+    .steps { grid-template-columns: 1fr; }
+    .quote { grid-template-columns: 1fr; padding: 32px 24px; gap: 16px; }
+    form { grid-template-columns: 1fr; padding: 24px 20px; }
+    .foot-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Moorehead Cheek, PLLC home">
+      <img src="logo.png" alt="Moorehead Cheek, Certified Public Accountants" width="145" height="46">
+    </a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav-links" id="navlinks">
+      <a href="#services">Services</a>
+      <a href="#who">Who We Serve</a>
+      <a href="#process">Our Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Certified Public Accountants</span>
+        <h1>Clear numbers.<br><em>Confident</em> decisions.</h1>
+        <p class="lead">Moorehead Cheek, PLLC helps individuals and growing businesses file accurately, keep clean books, and plan ahead, with a team that answers your calls and explains the why behind every number.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Book a free consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#services" class="btn btn-ghost">Explore services</a>
+        </div>
+        <div class="trust">
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Secure client portal</div>
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Year-round support</div>
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M8 7V5h8v2"/></svg>Flat, transparent pricing</div>
+        </div>
+      </div>
+
+      <aside class="hero-card reveal" aria-label="Upcoming tax deadlines">
+        <h3>Upcoming deadlines</h3>
+        <p class="sub">Stay ahead of the calendar. We track these for every client.</p>
+        <ul class="deadlines">
+          <li><div class="date"><b>15</b><span>Jan</span></div><div><strong>Q4 estimated tax payment</strong><small>Individuals &amp; self-employed</small></div></li>
+          <li><div class="date"><b>31</b><span>Jan</span></div><div><strong>W-2 &amp; 1099-NEC filing</strong><small>Employers and payers</small></div></li>
+          <li><div class="date"><b>15</b><span>Mar</span></div><div><strong>S-corp &amp; partnership returns</strong><small>Forms 1120-S and 1065</small></div></li>
+          <li><div class="date"><b>15</b><span>Apr</span></div><div><strong>Individual &amp; C-corp returns</strong><small>Forms 1040 and 1120</small></div></li>
+        </ul>
+        <a href="#contact" class="btn btn-brass">Get on our calendar</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we do</span>
+        <h2>Three practices, one trusted team.</h2>
+        <p>Whether you need a single return filed or a long-term financial partner, our services are built to work together so nothing falls through the cracks.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal">
+          <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg></div>
+          <h3>Tax Preparation &amp; Planning</h3>
+          <p>Accurate, on-time returns for individuals and businesses, plus proactive planning to keep more of what you earn.</p>
+          <ul>
+            <li>Individual returns (Form 1040)</li>
+            <li>Business returns: S-corp, C-corp, partnership</li>
+            <li>Multi-state and self-employment filings</li>
+            <li>Year-round tax planning &amp; projections</li>
+            <li>IRS and state notice resolution</li>
+          </ul>
+          <a href="#contact" class="more">Start your return <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="service reveal">
+          <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div>
+          <h3>Small Business Accounting</h3>
+          <p>Clean, reliable books and timely financials, so you always know where your business stands.</p>
+          <ul>
+            <li>Monthly bookkeeping &amp; reconciliations</li>
+            <li>Financial statements &amp; reporting</li>
+            <li>Payroll and sales tax compliance</li>
+            <li>QuickBooks setup, cleanup &amp; training</li>
+            <li>Year-end close and 1099 preparation</li>
+          </ul>
+          <a href="#contact" class="more">Get organized <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="service reveal">
+          <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 16l4-5 3 3 5-7"/><path d="M15 7h3v3"/></svg></div>
+          <h3>Business Consulting</h3>
+          <p>Practical guidance for the decisions that shape your business, from launch through growth to transition.</p>
+          <ul>
+            <li>Entity selection &amp; business formation</li>
+            <li>Budgeting, forecasting &amp; cash flow</li>
+            <li>Profitability and pricing analysis</li>
+            <li>Financing and growth planning</li>
+            <li>Succession &amp; exit strategy</li>
+          </ul>
+          <a href="#contact" class="more">Talk strategy <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE -->
+  <section id="who">
+    <div class="wrap split">
+      <div class="section-head reveal" style="margin-bottom:0">
+        <span class="eyebrow">Who we serve</span>
+        <h2>Personal attention for people and businesses at every stage.</h2>
+        <p>We keep our client relationships close. You'll work directly with the people preparing your work, not a rotating cast or a call center.</p>
+        <div class="hero-ctas"><a href="#contact" class="btn btn-ghost">See if we're a fit</a></div>
+      </div>
+      <div class="audience">
+        <div class="aud reveal"><span class="num">01</span><div><h3>Individuals &amp; families</h3><p>W-2 earners, retirees, investors and households with rental property or multi-state income.</p></div></div>
+        <div class="aud reveal"><span class="num">02</span><div><h3>Self-employed &amp; freelancers</h3><p>Contractors and sole proprietors who want quarterly estimates handled and deductions captured.</p></div></div>
+        <div class="aud reveal"><span class="num">03</span><div><h3>Small &amp; growing businesses</h3><p>Owner-operated companies that need dependable books, payroll compliance and a sounding board.</p></div></div>
+        <div class="aud reveal"><span class="num">04</span><div><h3>New ventures</h3><p>Founders choosing an entity, setting up accounting systems and planning for their first tax year.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>A simple process, start to finish.</h2>
+        <p>No guesswork and no surprises. You'll always know what we need, what comes next and what it costs.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Consultation</h3><p>A no-cost conversation to understand your situation, goals and deadlines.</p></div>
+        <div class="step reveal"><h3>Clear proposal</h3><p>A written scope and flat fee, so you know exactly what's included before we begin.</p></div>
+        <div class="step reveal"><h3>Secure onboarding</h3><p>Upload documents through our encrypted portal with a tailored checklist.</p></div>
+        <div class="step reveal"><h3>Ongoing partnership</h3><p>We deliver the work, walk you through results and stay available all year.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why Moorehead Cheek</span>
+        <h2>CPA expertise you can reach.</h2>
+      </div>
+      <div class="why">
+        <div class="why-item reveal"><h3>Responsive by design</h3><p>We return calls and emails promptly, during tax season and every other season too.</p></div>
+        <div class="why-item reveal"><h3>Proactive, not reactive</h3><p>We look ahead for savings and risks instead of just reporting on last year.</p></div>
+        <div class="why-item reveal"><h3>Plain-English advice</h3><p>We explain your numbers clearly so you can make decisions with confidence.</p></div>
+      </div>
+      <!-- Replace with a real, approved client testimonial before launch -->
+      <figure class="quote reveal">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 7H6a3 3 0 0 0-3 3v4h5v5h2zm11 0h-4a3 3 0 0 0-3 3v4h5v5h2z" transform="translate(0 -2)"/></svg>
+        <div>
+          <blockquote>Our goal is simple: give every client the clarity and confidence to focus on what matters most, whether that's growing a business or planning for the future.</blockquote>
+          <cite>The team at Moorehead Cheek, PLLC</cite>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq reveal">
+        <details open>
+          <summary>How do I get started?</summary>
+          <p>Schedule a free consultation using the form below. We'll discuss your needs, then send a written proposal with a flat fee. Once approved, you'll receive a secure portal invitation and a personalized document checklist.</p>
+        </details>
+        <details>
+          <summary>How is your pricing structured?</summary>
+          <p>Most engagements are quoted as a flat fee based on complexity, so there are no hourly surprises. Monthly accounting is offered as a fixed monthly subscription.</p>
+        </details>
+        <details>
+          <summary>Can you help if I'm behind on filings or received an IRS notice?</summary>
+          <p>Yes. We regularly help clients catch up on prior-year returns and respond to IRS and state notices. The sooner you reach out, the more options there typically are.</p>
+        </details>
+        <details>
+          <summary>Do I need to meet in person?</summary>
+          <p>Not at all. We work with clients in person, by video and entirely online. Documents are exchanged through our encrypted client portal, and returns can be signed electronically.</p>
+        </details>
+        <details>
+          <summary>Which accounting software do you support?</summary>
+          <p>We work primarily in QuickBooks Online and can help you set up, clean up or migrate your books. Ask us about other platforms.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Let's talk about your goals.</h2>
+        <p>Tell us a little about what you need, and we'll reach out within one business day to schedule your free consultation.</p>
+        <ul class="info-list">
+          <li><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><small>Phone</small><span>(000) 000-0000</span></div></li>
+          <li><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>Email</small><span>info@mooreheadcheek.com</span></div></li>
+          <li><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Office</small><span>Street Address, City, State ZIP</span></div></li>
+          <li><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Hours</small><span>Mon–Fri, 9am–5pm · Extended in tax season</span></div></li>
+        </ul>
+      </div>
+
+      <form class="reveal" id="contactForm" novalidate>
+        <div><label for="fname">First name</label><input id="fname" name="fname" autocomplete="given-name" required></div>
+        <div><label for="lname">Last name</label><input id="lname" name="lname" autocomplete="family-name" required></div>
+        <div><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required></div>
+        <div><label for="phone">Phone</label><input id="phone" type="tel" name="phone" autocomplete="tel"></div>
+        <div class="full">
+          <label>I'm interested in</label>
+          <div class="chips">
+            <input type="checkbox" id="c1" name="interest" value="Individual tax"><label for="c1">Individual tax</label>
+            <input type="checkbox" id="c2" name="interest" value="Business tax"><label for="c2">Business tax</label>
+            <input type="checkbox" id="c3" name="interest" value="Bookkeeping"><label for="c3">Bookkeeping</label>
+            <input type="checkbox" id="c4" name="interest" value="Consulting"><label for="c4">Consulting</label>
+          </div>
+        </div>
+        <div class="full"><label for="msg">How can we help?</label><textarea id="msg" name="msg" placeholder="A few details about your situation…"></textarea></div>
+        <div class="full form-foot">
+          <small>Please don't include Social Security numbers or other sensitive data here. We'll provide a secure portal for documents.</small>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </div>
+        <div class="form-ok" role="status">Thanks! We'll be in touch within one business day.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top"><img src="logo.png" alt="Moorehead Cheek, Certified Public Accountants" width="145" height="46"></a>
+        <p style="margin-top:20px;max-width:24em">Certified Public Accountants providing tax preparation, small business accounting and business consulting for individuals and growing companies.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#services">Individual Tax</a></li><li><a href="#services">Business Tax</a></li><li><a href="#services">Bookkeeping &amp; Payroll</a></li><li><a href="#services">Business Consulting</a></li></ul></div>
+      <div><h4>Firm</h4><ul><li><a href="#who">Who We Serve</a></li><li><a href="#process">Our Process</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Clients</h4><ul><li><a href="#">Client Portal</a></li><li><a href="#">Make a Payment</a></li><li><a href="#">Document Checklist</a></li><li><a href="https://www.irs.gov/refunds" target="_blank" rel="noopener">Where's My Refund?</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Moorehead Cheek, PLLC. All rights reserved.</span>
+      <span>The information on this site is general in nature and is not tax or legal advice.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const header = document.querySelector('header.site');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), { passive: true });
+
+  const menuBtn = document.querySelector('.menu-btn');
+  const links = document.getElementById('navlinks');
+  menuBtn.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false);
+  }));
+
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }) : null;
+  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    const required = ['fname', 'lname', 'email'].map(id => f.querySelector('#' + id));
+    let ok = true;
+    required.forEach(i => {
+      const bad = !i.value.trim() || (i.type === 'email' && !/^\S+@\S+\.\S+$/.test(i.value));
+      i.style.borderColor = bad ? '#b4442f' : '';
+      if (bad) ok = false;
+    });
+    if (!ok) return;
+    // TODO: connect to your form handler (e.g. Formspree, HubSpot, or your CRM)
+    f.querySelector('.form-ok').style.display = 'block';
+    f.querySelector('button[type=submit]').disabled = true;
+  });
+</script>
+</body>
+</html>
