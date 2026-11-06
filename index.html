@@ -203,14 +203,18 @@
     background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px;
     box-shadow: var(--shadow);
   }
-  .person img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; border-radius: 14px; }
+  .avatar {
+    width: 100%; aspect-ratio: 4 / 5; border-radius: 14px; display: grid; place-items: center;
+    background: linear-gradient(160deg, #e3e9f2, #cfd9e7); color: var(--forest);
+  }
+  .avatar span { font-size: 56px; font-weight: 700; letter-spacing: -0.02em; opacity: .85; }
   .person h3 { font-size: 26px; margin: 8px 0 4px; }
   .person .role { color: var(--forest); font-weight: 600; font-size: 15px; }
   .person p.bio { color: var(--ink-soft); margin: 16px 0 0; font-size: 15.5px; }
   @media (max-width: 1000px) { .team { grid-template-columns: 1fr; } }
   @media (max-width: 560px) {
     .person { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
-    .person img { max-width: 280px; }
+    .avatar { max-width: 280px; }
   }
 
   /* FAQ */
@@ -489,7 +493,7 @@
       </div>
       <div class="team">
         <article class="person reveal">
-          <img src="matt-moorehead.jpg" alt="Portrait of Matt Moorehead, CPA" width="800" height="875" loading="lazy">
+          <div class="avatar" role="img" aria-label="Photo of Matt Moorehead coming soon"><span>MM</span></div>
           <div>
             <span class="eyebrow">Partner</span>
             <h3>Matt Moorehead, CPA</h3>
@@ -498,7 +502,7 @@
           </div>
         </article>
         <article class="person reveal">
-          <img src="jon-cheek.jpg" alt="Portrait of Jon Cheek, CPA" width="799" height="1066" loading="lazy">
+          <div class="avatar" role="img" aria-label="Photo of Jon Cheek coming soon"><span>JC</span></div>
           <div>
             <span class="eyebrow">Partner</span>
             <h3>Jon Cheek, CPA</h3>
